@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg: #fff;
+  --list-bg: #fff;
+  --clr-input: #393a4b;
+  --list-border: #e3e4f1;
+  --txt-clr1: #494c6b;
+  --txt-clr2: #d1d2da;
+  --text-clr3: #9495a5;
+  --txt-hover: #494c6b;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+.container {
+  width: 100%;
+  max-width: 588px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+.dark {
+  --bg: #171823;
+  --list-bg: #25273d;
+  --list-border: #393a4b;
+  --clr-input: #c8cbe7;
+  --txt-clr1: #c8cbe7;
+  --txt-clr2: #4d5067;
+  --text-clr3: #5b5e7e;
+  --txt-hover: #e3e4f1;
+}
+#wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--bg);
+  padding-bottom: 30px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  border: 2px solid var(--list-border);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  @media (max-width:470px) {
+width: 20px;
+height: 20px;
+  }
+}
+input[type="checkbox"]:hover {
+  border: 2px solid #55ddff;
+}
+input[type="checkbox"]:checked::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  border-radius: 50px;
+  left: -2px;
+  top: -2.5px;
+  background-image: url("../../public/assets/image/checkbox.png");
+  background-position: center;
+  background-size: cover;
+  @media (max-width:470px) {
+    width: 20px;
+    height: 20px;
+      }
+}
