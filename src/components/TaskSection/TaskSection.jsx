@@ -1,8 +1,10 @@
 import Cross from "../../../public/assets/icons/cross.svg";
 import PropTypes from "prop-types"
 import"./taskSection.css"
-
-const TaskSection = ({isTaskArr,setIsTaskArr}) => {
+import { Context } from "../../App";
+import { useContext } from "react";
+const TaskSection = () => {
+  const{isTaskArr,setIsTaskArr} =useContext(Context)
  function deleteTask(index){
  let todo = isTaskArr.filter((item,i)=> i !==index)
  setIsTaskArr(todo)
@@ -25,7 +27,8 @@ const TaskSection = ({isTaskArr,setIsTaskArr}) => {
       <p className="taskListCount">{isTaskArr.length} items left</p>
       <nav className="navbar">
         <ul className="list">
-          <li className="list-active">All</li>
+       
+    <li className="list-active">All</li>
           <li>Active</li>
           <li>Completed</li>
         </ul>
