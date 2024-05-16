@@ -3,18 +3,21 @@ import SummerIcon from "../../../public/assets/icons/summer.svg";
 import PropTypes from "prop-types";
 import "./header.css"
 const Header = ({ bool ,darkMode,setIsInputValue,task}) => {
+  function Submitted(e){
+    e.preventDefault()
+    setIsInputValue('')
+    task()
+  }
+  
   function inputValue(e){
     if(e.target.value !==""){
-      setIsInputValue(e.target.value)
+      let text =e.target.value
+      setIsInputValue(text)
     }
    
   }
-  function checkboxFun(e){
-  if(e.target.checked);{
-task()
-setIsInputValue('')
-  }
-  
+  function checkboxFun(){
+task()  
   }
   function checked(e){
     e.target.checked= false
@@ -31,23 +34,24 @@ setIsInputValue('')
             {bool == "true" ? <SummerIcon /> : <MoonIcon />}
           </span>
         </div>
-        <div className="todo-input">
-          <input type="checkbox" className="checkbox" onClick={checkboxFun} onBlur={checked}/>
+        <form 
+        className="todo-input"
+        onSubmit={Submitted}>
+          <input type="checkbox" className="checkbox" onBlur={checked} onClick={checkboxFun}/>
           <input
             type="text"
             placeholder="Create a new todo…"
-            onBlur={inputValue}
+            onInput={inputValue}
           />
-        </div>
+        </form>
       </div>
     </header>
   );
 };
-
 export default Header;
 Header.propTypes = {
   bool: PropTypes.string,
   darkMode:PropTypes.func,
   setIsInputValue:PropTypes.func,
-  task:PropTypes.func
+  task:PropTypes.func,
 };

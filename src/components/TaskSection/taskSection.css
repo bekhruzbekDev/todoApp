@@ -6,13 +6,15 @@
     top: -54px;
   } 
   .task {
+    width: 100%;
     padding: 20px 24px;
+    max-width: 540px;
     border-bottom: 1px solid var(--list-border);
     display: flex;
     justify-content: space-between;
     gap: 24px;
     align-items: center;
-    @media (max-width:470px) {
+      @media (max-width:470px) {
       gap: 12px;
       }
   }
